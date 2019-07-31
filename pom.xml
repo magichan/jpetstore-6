@@ -119,7 +119,12 @@
       <artifactId>hsqldb</artifactId>
       <version>${hsqldb.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>net.kieker-monitoring</groupId>
+      <artifactId>kieker</artifactId>
+      <version>1.13</version>
+      <classifier>aspectj</classifier>
+    </dependency>
     <!-- Test dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -205,6 +210,14 @@
                 <cargo.daemon.handleid>${project.artifactId}</cargo.daemon.handleid>
               </properties>
             </daemon>
+            <configuration>
+              <properties>
+                <!-- <cargo.jvmargs>-javaagent:${user.home}\.m2\repository\net\kieker-monitoring\kieker\1.13\kieker-1.13-aspectj.jar -Dorg.aspectj.weaver.loadtime.configuration=META-INF/aop.xml -Dkieker.monitoring.skipDefaultAOPConfiguration=true
+                </cargo.jvmargs> -->
+                <cargo.jvmargs>-javaagent:${user.home}\.m2\repository\org\aspectj\aspectjweaver\1.6.11\aspectjweaver-1.6.11.jar -Dorg.aspectj.weaver.loadtime.configuration=META-INF/aop.xml  -Dkieker.monitoring.skipDefaultAOPConfiguration=true
+                </cargo.jvmargs>
+              </properties>
+            </configuration>
           </configuration>
         </plugin>
       </plugins>
